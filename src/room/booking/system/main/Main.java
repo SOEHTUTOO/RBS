@@ -36,7 +36,7 @@ public class Main extends Application {
                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                 alert.setTitle("ARE YOU SURE?");
                 alert.setHeaderText(null);
-                alert.setContentText("YOU ARE GOING TO EXIT THIS APPLICATION. ARE YOU SURE?");
+                alert.setContentText("YOU ARE GOING TO EXIT. ARE YOU SURE?");
                 Optional<ButtonType> choice = alert.showAndWait();
                 
                 if(choice.get().equals(ButtonType.CANCEL)){

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="room.booking.system.controller.AddMemberController">
+   <children>
+      <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="31.0" prefWidth="380.0" style="-fx-background-color: #3333dd;" text="Member Form" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Separator layoutY="50.0" prefHeight="13.0" prefWidth="400.0" />
+      <VBox layoutY="60.0" prefHeight="540.0" prefWidth="400.0" spacing="20.0">
+         <padding>
+            <Insets bottom="15.0" left="10.0" right="10.0" top="15.0" />
+         </padding>
+         <children>
+            <JFXTextField focusColor="#3333dd" labelFloat="true" promptText="Full Name" unFocusColor="BLACK">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField focusColor="#3333dd" labelFloat="true" promptText="ID Number" unFocusColor="BLACK">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField focusColor="#3333dd" labelFloat="true" promptText="ARC Number" unFocusColor="BLACK">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0">
+               <children>
+                  <Label prefHeight="21.0" prefWidth="134.0" text="Birth Date">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <DatePicker prefHeight="25.0" prefWidth="231.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0">
+               <children>
+                  <Label prefWidth="150.0" text="Gender">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <JFXCheckBox checkedColor="#3333dd" prefWidth="120.0" text="Male" unCheckedColor="BLACK">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+                  <JFXCheckBox checkedColor="#3333dd" prefWidth="120.0" text="Female" unCheckedColor="BLACK">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXCheckBox>
+               </children>
+            </HBox>
+            <JFXTextField focusColor="#3333dd" labelFloat="true" promptText="Mobile Number" unFocusColor="BLACK">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField focusColor="#3333dd" labelFloat="true" promptText="Email" unFocusColor="BLACK">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextArea focusColor="#3333dd" labelFloat="true" prefHeight="118.0" prefWidth="380.0" promptText="Address" unFocusColor="BLACK">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </JFXTextArea>
+            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="380.0" spacing="20.0">
+               <children>
+                  <JFXButton prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #3333dd;" text="SAVE" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton fx:id="cancelBtn" onAction="#closeWindow" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #3333dd;" text="CANCEL" textFill="WHITE">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

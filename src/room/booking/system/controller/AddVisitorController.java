@@ -5,9 +5,13 @@
  */
 package room.booking.system.controller;
 
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -16,12 +20,28 @@ import javafx.fxml.Initializable;
  */
 public class AddVisitorController implements Initializable {
 
+    @FXML
+    
+    Stage stage;
+    
+    private JFXButton cancelBtn;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        
+        
     }    
+
+    @FXML
+    private void closeWindow(ActionEvent event) {
+        
+        Stage stage = (Stage) cancelBtn.getScene().getWindow();
+        stage.close();
+        
+    }
     
 }

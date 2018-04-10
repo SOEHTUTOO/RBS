@@ -18,6 +18,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
@@ -31,6 +32,8 @@ public class HomeController implements Initializable {
     private JFXButton addVisitorBtn;
     @FXML
     private JFXButton exitBtn;
+    @FXML
+    private JFXButton addMemberBtn;
 
     /**
      * Initializes the controller class.
@@ -49,7 +52,10 @@ public class HomeController implements Initializable {
         
         Scene scene = new Scene(root);
         
+        stage.getIcons().add(new Image("/room/booking/system/icon/booking.png"));
+        
         stage.setScene(scene);
+        stage.setTitle("Visitor Form");
         stage.show();
         
     }
@@ -63,12 +69,29 @@ public class HomeController implements Initializable {
                 
                 alert.setTitle("ARE YOU SURE?");
                 alert.setHeaderText(null);
-                alert.setContentText("YOU ARE GOING TO EXIT THIS APPLICATION. ARE YOU SURE?");
+                alert.setContentText("YOU ARE GOING TO EXIT. ARE YOU SURE?");
                 Optional<ButtonType> choice = alert.showAndWait();
                 
                 if(choice.get().equals(ButtonType.OK)){
                     stage.close();
                 }
+        
+    }
+
+    @FXML
+    private void openMemberForm(ActionEvent event) throws IOException {
+        
+        Stage stage = new Stage();
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/room/booking/system/view/addmember.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.getIcons().add(new Image("/room/booking/system/icon/addmember.png"));
+        
+        stage.setScene(scene);
+        stage.setTitle("Member Form");
+        stage.show();
         
     }
     
