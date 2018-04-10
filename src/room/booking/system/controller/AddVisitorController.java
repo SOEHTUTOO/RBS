@@ -21,9 +21,6 @@ import javafx.stage.Stage;
 public class AddVisitorController implements Initializable {
 
     @FXML
-    
-    Stage stage;
-    
     private JFXButton cancelBtn;
 
     /**
