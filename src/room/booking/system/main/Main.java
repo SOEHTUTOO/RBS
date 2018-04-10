@@ -5,11 +5,17 @@
  */
 package room.booking.system.main;
 
+import java.util.Optional;
 import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 /**
  *
@@ -23,7 +29,26 @@ public class Main extends Application {
         
         Scene scene = new Scene(root);
         
+        stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+            
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+                alert.setTitle("ARE YOU SURE?");
+                alert.setHeaderText(null);
+                alert.setContentText("YOU ARE GOING TO EXIT THIS APPLICATION. ARE YOU SURE?");
+                Optional<ButtonType> choice = alert.showAndWait();
+                
+                if(choice.get().equals(ButtonType.CANCEL)){
+                    event.consume();
+                } 
+            }
+        });
+        
+        stage.getIcons().add(new Image("/room/booking/system/icon/booking.png"));
+        
         stage.setScene(scene);
+        stage.setTitle("ROOM BOOKING SYSTEM");
         stage.show();
         
     }
