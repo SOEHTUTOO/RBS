@@ -34,6 +34,8 @@ public class HomeController implements Initializable {
     private JFXButton exitBtn;
     @FXML
     private JFXButton addMemberBtn;
+    @FXML
+    private JFXButton roomBtn;
 
     /**
      * Initializes the controller class.
@@ -91,6 +93,23 @@ public class HomeController implements Initializable {
         
         stage.setScene(scene);
         stage.setTitle("Member Form");
+        stage.show();
+        
+    }
+
+    @FXML
+    private void openRoomWindow(ActionEvent event) throws IOException {
+        
+        Stage stage = new Stage();
+        
+        Parent root = FXMLLoader.load(getClass().getResource("/room/booking/system/view/rooms.fxml"));
+        
+        Scene scene = new Scene(root);
+        
+        stage.getIcons().add(new Image("/room/booking/system/icon/rooms.png"));
+        
+        stage.setScene(scene);
+        stage.setTitle("ROOMS");
         stage.show();
         
     }
