@@ -5,6 +5,7 @@
  */
 package room.booking.system.main;
 
+import java.sql.SQLException;
 import java.util.Optional;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -16,6 +17,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import room.booking.system.database.Database;
 
 /**
  *
@@ -51,6 +53,16 @@ public class Main extends Application {
         stage.setTitle("ROOM BOOKING SYSTEM");
         stage.show();
         
+        try {
+            Database.getInstance();
+        }catch(SQLException e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error Connecting");
+            alert.setContentText("Cannot Connect To The Database.");
+            alert.setHeaderText(null);
+            alert.show();
+        }
+        
     }
 
     /**
@@ -58,6 +70,8 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         launch(args);
+        
+        
     }
     
 }

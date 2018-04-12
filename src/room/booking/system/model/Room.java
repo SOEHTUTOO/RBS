@@ -14,14 +14,28 @@ public class Room {
     private String id;
     private int slot;
     private String building;
+    private boolean available;
 
     public Room(String id, int slot, String building) {
         this.id = id;
         this.slot = slot;
         this.building = building;
     }
-    
-    
+
+    public Room(String id, int slot, String building, boolean available) {
+        this.id = id;
+        this.slot = slot;
+        this.building = building;
+        this.available = available;
+    }
+
+    public boolean isAvailable() {
+        return available;
+    }
+
+    public void setAvailable(boolean available) {
+        this.available = available;
+    }
 
     public String getId() {
         return id;
