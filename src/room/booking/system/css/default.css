@@ -10,7 +10,7 @@ and open the template in the editor.
 
 *{
     
-    -fx-primary : #3333dd;
+    -fx-primary : #304ffe;
     
 }
 
@@ -28,7 +28,7 @@ and open the template in the editor.
 
 .custom_button{
     
-    -fx-border-color: -fx-primary;
+    -fx-border-color: black;
     -fx-background-color: -fx-primary;
     -fx-text-fill: white;
     -fx-border-radius: 20px;

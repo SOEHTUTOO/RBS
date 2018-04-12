@@ -15,7 +15,7 @@ import java.sql.Date;
 public class Visitor {
     
     private String name;
-    private Date birthDate;
+    private Date birth;
     private String passport;
     private String visa;
     private String nation;
@@ -27,9 +27,9 @@ public class Visitor {
     private Date departure;
     private String address;
 
-    public Visitor(String name, Date birthDate, String passport, String visa, String nation, String organization, String number, String email, String gender, Date arrival, Date departure, String address) {
+    public Visitor(String name, Date birth, String passport, String visa, String nation, String organization, String mobile, String email, String gender, Date arrival, Date departure, String address) {
         this.name = name;
-        this.birthDate = birthDate;
+        this.birth = birth;
         this.passport = passport;
         this.visa = visa;
         this.nation = nation;
@@ -41,8 +41,17 @@ public class Visitor {
         this.departure = departure;
         this.address = address;
     }
+
     
     
+    
+    public Date getBirth() {
+        return birth;
+    }
+
+    public void setBirth(Date birth) {
+        this.birth = birth;
+    }
 
     public String getName() {
         return name;
@@ -52,13 +61,6 @@ public class Visitor {
         this.name = name;
     }
 
-    public Date getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
 
     public String getPassport() {
         return passport;
