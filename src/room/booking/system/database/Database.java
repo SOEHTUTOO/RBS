@@ -37,7 +37,7 @@ public class Database {
         return database;
     }
     
-    public void connect() throws SQLException {
+    private void connect() throws SQLException {
     
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -49,7 +49,7 @@ public class Database {
         
     }
     
-    public void createDB​() throws SQLException{
+    private void createDB​() throws SQLException{
     
         String createDBSql = "create database if not exists rbsdb";
         Statement creatDBStmt = connectionToDB.createStatement();
@@ -57,7 +57,7 @@ public class Database {
         
     }
     
-    public void createTB () throws SQLException {
+    private void createTB () throws SQLException {
     
         String createRoomTB = "create table if not exists rbsdb.rooms (id varchar(50) unique key, slot int, building varchar(50), is_available boolean default true)";
         String createVisitorTB = "create table if not exists rbsdb.visitors (name varchar(100), birth date, arrival date, departure date, passport varchar(50) unique key, visa varchar(50), nation varchar(100), organization varchar(100), mobile varchar(30), email varchar(50), gender varchar(10), address varchar(255))";

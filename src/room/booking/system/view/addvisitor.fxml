@@ -16,7 +16,7 @@
 <AnchorPane id="AnchorPane" prefHeight="201.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="room.booking.system.controller.AddVisitorController">
    <children>
       <Separator layoutY="45.0" prefHeight="18.0" prefWidth="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0" />
-      <Label alignment="CENTER" layoutX="7.0" layoutY="5.0" prefHeight="43.0" prefWidth="637.0" style="-fx-background-color: #304ffe;" text="VISITOR FORM" textFill="WHITE" AnchorPane.bottomAnchor="465.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="5.0">
+      <Label alignment="CENTER" layoutX="7.0" layoutY="5.0" prefHeight="43.0" prefWidth="637.0" style="-fx-background-color: #3F51B5;" text="VISITOR FORM" textFill="WHITE" AnchorPane.bottomAnchor="465.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="5.0">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
@@ -24,7 +24,7 @@
       <Separator layoutX="320.0" layoutY="61.0" orientation="VERTICAL" prefHeight="437.0" prefWidth="11.0" />
       <VBox layoutX="3.0" layoutY="47.0" prefHeight="462.0" prefWidth="320.0" spacing="20.0">
          <children>
-            <JFXTextField focusColor="#3333dd" promptText="Full Name" unFocusColor="BLACK">
+            <JFXTextField fx:id="nameField" focusColor="#3f51b5" promptText="Full Name" unFocusColor="BLACK">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -36,35 +36,35 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <DatePicker prefWidth="200.0" />
+                  <DatePicker fx:id="birthDatePicker" prefWidth="200.0" />
                </children>
             </HBox>
-            <JFXTextField focusColor="#3333dd" promptText="Passport Number" unFocusColor="BLACK">
+            <JFXTextField fx:id="passportField" focusColor="#3f51b5" promptText="Passport Number" unFocusColor="BLACK">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField focusColor="#3333dd" promptText="Visa Number" unFocusColor="BLACK">
+            <JFXTextField fx:id="visaField" focusColor="#3f51b5" promptText="Visa Number" unFocusColor="BLACK">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField focusColor="#3333dd" promptText="Nationality" unFocusColor="BLACK">
+            <JFXTextField fx:id="nationField" focusColor="#3f51b5" promptText="Nationality" unFocusColor="BLACK">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField focusColor="#3333dd" promptText="Name of Organization" unFocusColor="BLACK">
+            <JFXTextField fx:id="organizeField" focusColor="#3f51b5" promptText="Name of Organization" unFocusColor="BLACK">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField focusColor="#3333dd" promptText="Contact Number" unFocusColor="BLACK">
+            <JFXTextField fx:id="mobileField" focusColor="#3f51b5" promptText="Contact Number" unFocusColor="BLACK">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField focusColor="#3333dd" promptText="Email" unFocusColor="BLACK">
+            <JFXTextField fx:id="emailField" focusColor="#3f51b5" promptText="Email" unFocusColor="BLACK">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -83,12 +83,12 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <JFXCheckBox checkedColor="#3333dd" text="Male" unCheckedColor="BLACK">
+                  <JFXCheckBox fx:id="maleCheck" checkedColor="#3f51b5" text="Male" unCheckedColor="BLACK">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXCheckBox>
-                  <JFXCheckBox checkedColor="#3333dd" text="Female" unCheckedColor="BLACK">
+                  <JFXCheckBox fx:id="femaleCheck" checkedColor="#3f51b5" text="Female" unCheckedColor="BLACK">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -102,7 +102,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <DatePicker prefWidth="200.0" />
+                  <DatePicker fx:id="arrivalDatePicker" prefWidth="200.0" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="30.0" prefWidth="200.0" spacing="10.0">
@@ -112,22 +112,22 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <DatePicker prefHeight="25.0" prefWidth="200.0" />
+                  <DatePicker fx:id="departureDatePicker" prefHeight="25.0" prefWidth="200.0" />
                </children>
             </HBox>
-            <JFXTextArea focusColor="#3333dd" prefHeight="150.0" prefWidth="300.0" promptText="Permanent Address" unFocusColor="BLACK" wrapText="true">
+            <JFXTextArea fx:id="addressField" focusColor="#3f51b5" prefHeight="150.0" prefWidth="300.0" promptText="Permanent Address" unFocusColor="BLACK" wrapText="true">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXTextArea>
             <HBox alignment="CENTER" prefHeight="43.0" prefWidth="300.0" spacing="20.0">
                <children>
-                  <JFXButton prefHeight="50.0" prefWidth="100.0" styleClass="custom_button" stylesheets="@../css/default.css" text="SAVE" textFill="WHITE">
+                  <JFXButton fx:id="saveBtn" onAction="#saveVisitorToDB" prefHeight="50.0" prefWidth="100.0" styleClass="custom_button" stylesheets="@../css/default.css" text="SAVE" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton fx:id="cancelBtn" onAction="#closeWindow" prefHeight="50.0" prefWidth="100.0" styleClass="custom_button" stylesheets="@../css/default.css" text="CLOSE" textFill="WHITE">
+                  <JFXButton fx:id="closeBtn" onAction="#closeWindow" prefHeight="50.0" prefWidth="100.0" styleClass="custom_button" stylesheets="@../css/default.css" text="CLOSE" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

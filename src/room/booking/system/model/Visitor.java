@@ -16,6 +16,8 @@ public class Visitor {
     
     private String name;
     private Date birth;
+    private Date arrival;
+    private Date departure;
     private String passport;
     private String visa;
     private String nation;
@@ -23,13 +25,13 @@ public class Visitor {
     private String mobile;
     private String email;
     private String gender;
-    private Date arrival;
-    private Date departure;
     private String address;
 
-    public Visitor(String name, Date birth, String passport, String visa, String nation, String organization, String mobile, String email, String gender, Date arrival, Date departure, String address) {
+    public Visitor(String name, Date birth, Date arrival, Date departure, String passport, String visa, String nation, String organization, String mobile, String email, String gender, String address) {
         this.name = name;
         this.birth = birth;
+        this.arrival = arrival;
+        this.departure = departure;
         this.passport = passport;
         this.visa = visa;
         this.nation = nation;
@@ -37,11 +39,8 @@ public class Visitor {
         this.mobile = mobile;
         this.email = email;
         this.gender = gender;
-        this.arrival = arrival;
-        this.departure = departure;
         this.address = address;
     }
-
     
     
     

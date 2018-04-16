@@ -11,8 +11,6 @@ import com.jfoenix.controls.JFXTextArea;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -59,7 +57,7 @@ public class AddRoomController implements Initializable {
         buildingCombox.getItems().add("Japan");
         buildingCombox.getItems().add("G House");
         buildingCombox.getItems().add("G Dormantry");
-        buildingCombox.getItems().add("Other Building");
+        buildingCombox.getItems().add("Custom");
         
         
     }    
@@ -71,7 +69,7 @@ public class AddRoomController implements Initializable {
         int slot = slotSpinner.getValue();
         String building = buildingCombox.getValue();
         
-        if(id.isEmpty() || building.isEmpty()) {
+        if(id.isEmpty() && building.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Check Info");
             alert.setHeaderText(null);

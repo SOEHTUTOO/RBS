@@ -11,14 +11,16 @@ import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.Date;
-import java.time.Instant;
-import java.time.LocalDate;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
+import room.booking.system.model.Member;
+import room.booking.system.model.MemberDAO;
 
 /**
  * FXML Controller class
@@ -27,8 +29,6 @@ import javafx.stage.Stage;
  */
 public class AddMemberController implements Initializable {
 
-    @FXML
-    private JFXButton cancelBtn;
     @FXML
     private JFXTextField nameField;
     @FXML
@@ -49,35 +49,46 @@ public class AddMemberController implements Initializable {
     private JFXTextArea addressField;
     @FXML
     private JFXButton saveBtn;
+    @FXML
+    private JFXButton closeBtn;
+    
+    MemberDAO memberDAO;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        memberDAO = new MemberDAO();
+        
     }    
 
     @FXML
     private void closeWindow(ActionEvent event) {
         
-        Stage stage = (Stage) cancelBtn.getScene().getWindow();
+        Stage stage = (Stage) closeBtn.getScene().getWindow();
         stage.close();
         
     }
 
     @FXML
-    private void saveMember(ActionEvent event) {
+    private void saveMemberToDB(ActionEvent event) {
         
         String name = nameField.getText();
+        
+        Date birth = null;
+        if(birthDatePicker.getValue()!=null){
+        birth = java.sql.Date.valueOf(birthDatePicker.getValue());}
+        
         String id = idField.getText();
         String arcNo = arcField.getText();
-        Date birth = java.sql.Date.valueOf(birthDatePicker.getValue());
+        
         String gender = null;
         
         if(maleCheck.isSelected() && femaleCheck.isSelected()) {
         
-           gender = "Please just choose one gender";
+           gender = null;
             
         }else if(maleCheck.isSelected()){
         
@@ -89,14 +100,42 @@ public class AddMemberController implements Initializable {
             
         }else{
         
-           gender = "Please choose your gender";
+           gender = null;
         }
 
         String mobile = mobileField.getText();
         String email = emailField.getText();
         String address = addressField.getText();
         
-        System.out.println(name+id+arcNo+birth+gender+mobile+email+address);
+        if(name.isEmpty() || id.isEmpty() || arcNo.isEmpty() || birth==null || gender==null || mobile.isEmpty() || email.isEmpty() || address.isEmpty()){
+            
+           Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Check The Info");
+            alert.setHeaderText(null);
+            alert.setContentText("Please fill all fields.");
+            alert.show();
+            return;
+            
+        }
+        
+        try {
+            memberDAO.addMemberToDB(new Member(name,birth,id,arcNo,gender,mobile,email,address));
+            
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("SUCCESS");
+            alert.setHeaderText(null);
+            alert.setContentText("SUCCESS.");
+            alert.show();
+            
+        } catch (SQLException ex) {
+            
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("FAIL");
+            alert.setHeaderText(null);
+            alert.setContentText("FAIL.");
+            alert.show();
+            
+        }
         
     }
     

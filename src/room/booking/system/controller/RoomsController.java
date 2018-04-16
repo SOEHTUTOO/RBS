@@ -9,7 +9,6 @@ import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,7 +22,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import room.booking.system.model.Room;
 import room.booking.system.model.RoomDAO;
@@ -69,9 +67,9 @@ public class RoomsController implements Initializable {
                 roomBtn = new JFXButton();
                 roomBtn.setText(room.getId());
                 if(room.isAvailable()){
-                    roomBtn.setStyle("-fx-background-color: #00ff00; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #000000");
+                    roomBtn.setStyle("-fx-background-color: #4CAF50; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #000000");
                 }else{
-                    roomBtn.setStyle("-fx-background-color: #ff0000; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #ffffff");
+                    roomBtn.setStyle("-fx-background-color: #F44336; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #ffffff");
                 } 
                 aPane.getChildren().add(roomBtn);
                 
@@ -92,9 +90,9 @@ public class RoomsController implements Initializable {
                 roomBtn = new JFXButton();
                 roomBtn.setText(room.getId());
                 if(room.isAvailable()){
-                    roomBtn.setStyle("-fx-background-color: #00ff00; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #000000");
+                    roomBtn.setStyle("-fx-background-color: #4CAF50; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #000000");
                 }else{
-                    roomBtn.setStyle("-fx-background-color: #ff0000; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #ffffff");
+                    roomBtn.setStyle("-fx-background-color: #F44336; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #ffffff");
                 } 
                 gPane.getChildren().add(roomBtn);
             }
