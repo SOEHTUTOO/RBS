@@ -5,20 +5,25 @@
  */
 package room.booking.system.controller;
 
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import room.booking.system.model.Member;
 import room.booking.system.model.MemberDAO;
+import room.booking.system.model.Visitor;
 
 /**
  * FXML Controller class
@@ -37,6 +42,12 @@ public class MembersController implements Initializable {
     private TableColumn<Member, String> mobileCol;
     
     MemberDAO memberDAO;
+    @FXML
+    private JFXTextField searchField;
+    @FXML
+    private JFXButton searchBtn;
+    @FXML
+    private JFXButton clearBtn;
 
     /**
      * Initializes the controller class.
@@ -63,5 +74,79 @@ public class MembersController implements Initializable {
         memberTable.getItems().addAll(memberList);
         
     }    
+
+    @FXML
+    private void searchWithField(ActionEvent event) throws SQLException {
+        
+        String searchText = searchField.getText();
+        
+        ObservableList<Member> memberList = memberDAO.searchMembers(searchText);
+        
+        if(memberList.isEmpty()){
+            
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("No Data Found!");
+            alert.setHeaderText(null);
+            alert.show();
+            
+            return;
+            
+        }
+        
+        for ( int i = 0; i<memberTable.getItems().size(); i++) {
+            memberTable.getItems().clear();
+        }
+        
+        memberTable.getItems().addAll(memberList);
+        
+        
+    }
+
+    @FXML
+    private void searchWithBtn(ActionEvent event) throws SQLException {
+        
+        String searchText = searchField.getText();
+        
+        ObservableList<Member> memberList = memberDAO.searchMembers(searchText);
+        
+        if(memberList.isEmpty()){
+            
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("No Data Found!");
+            alert.setHeaderText(null);
+            alert.show();
+            
+            return;
+            
+        }
+        
+        for ( int i = 0; i<memberTable.getItems().size(); i++) {
+            memberTable.getItems().clear();
+        }
+        
+        memberTable.getItems().addAll(memberList);
+        
+    }
+
+    @FXML
+    private void clearTable(ActionEvent event) {
+        
+        for ( int i = 0; i<memberTable.getItems().size(); i++) {
+            memberTable.getItems().clear();
+        }
+        
+        ObservableList<Member> memberList = null;
+        
+        try {
+            memberList = memberDAO.getMemberList();
+        } catch (SQLException ex) {
+            Logger.getLogger(MembersController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        memberTable.getItems().addAll(memberList);
+        
+    }
     
 }

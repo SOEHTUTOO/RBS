@@ -80,5 +80,32 @@ public class MemberDAO {
         return memberList; 
        
     }
+
+    public ObservableList<Member> searchMembers(String searchText) throws SQLException {
+        
+        Connection connectionToDB = Database.getInstance().getConnection();
+        
+        ObservableList<Member> memberList = FXCollections.observableArrayList();
+        
+        String searchMemberSql = "select * from rbsdb.members where name like '%"+searchText+"%'";
+        Statement memberStmt = connectionToDB.createStatement();
+        ResultSet memberResults = memberStmt.executeQuery(searchMemberSql);
+        
+        while (memberResults.next()){
+            
+                String name = memberResults.getString("name");
+                String arcNo = memberResults.getString("arc");
+                String mobile = memberResults.getString("mobile");
+                
+                Member member = new Member(name,arcNo,mobile);
+                
+                memberList.add(member);
+                
+            
+            }
+        
+        return memberList;
+        
+    }
     
 }

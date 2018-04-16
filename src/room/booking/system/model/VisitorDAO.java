@@ -93,5 +93,32 @@ public class VisitorDAO {
         return visitorList;
         
     }
+
+    public ObservableList<Visitor> searchVisitors(String searchText) throws SQLException {
+        
+        Connection connectionToDB = Database.getInstance().getConnection();
+        
+        ObservableList<Visitor> visitorList = FXCollections.observableArrayList();
+        
+        String searchVisitorSql = "select * from rbsdb.visitors where name like '%"+searchText+"%'";
+        Statement visitorStmt = connectionToDB.createStatement();
+        ResultSet visitorResults = visitorStmt.executeQuery(searchVisitorSql);
+        
+        while (visitorResults.next()){
+            
+                String name = visitorResults.getString("name");
+                String passport = visitorResults.getString("passport");
+                String nation = visitorResults.getString("nation");
+                String mobile = visitorResults.getString("mobile");
+                String email = visitorResults.getString("email");
+                
+                Visitor visitor = new Visitor(name,passport,nation,mobile,email);
+                
+                visitorList.add(visitor);
+        }
+        
+        return visitorList;
+        
+    }
     
 }
