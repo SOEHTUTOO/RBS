@@ -19,7 +19,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  * FXML Controller class
@@ -36,6 +38,10 @@ public class HomeController implements Initializable {
     private JFXButton addMemberBtn;
     @FXML
     private JFXButton roomBtn;
+    @FXML
+    private JFXButton visitorBtn;
+    @FXML
+    private JFXButton memberBtn;
 
     /**
      * Initializes the controller class.
@@ -48,17 +54,7 @@ public class HomeController implements Initializable {
     @FXML
     private void openVisitorForm(ActionEvent event) throws IOException {
         
-        Stage stage = new Stage();
-        
-        Parent root = FXMLLoader.load(getClass().getResource("/room/booking/system/view/addvisitor.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        stage.getIcons().add(new Image("/room/booking/system/icon/booking.png"));
-        
-        stage.setScene(scene);
-        stage.setTitle("Visitor Form");
-        stage.show();
+        loadWindows("Visitor Form","/room/booking/system/view/addvisitor.fxml",new Image("/room/booking/system/icon/booking.png"));
         
     }
 
@@ -83,34 +79,44 @@ public class HomeController implements Initializable {
     @FXML
     private void openMemberForm(ActionEvent event) throws IOException {
         
-        Stage stage = new Stage();
-        
-        Parent root = FXMLLoader.load(getClass().getResource("/room/booking/system/view/addmember.fxml"));
-        
-        Scene scene = new Scene(root);
-        
-        stage.getIcons().add(new Image("/room/booking/system/icon/addmember.png"));
-        
-        stage.setScene(scene);
-        stage.setTitle("Member Form");
-        stage.show();
+        loadWindows("Member Form","/room/booking/system/view/addmember.fxml",new Image("/room/booking/system/icon/addmember.png"));
         
     }
 
     @FXML
     private void openRoomWindow(ActionEvent event) throws IOException {
         
+        loadWindows("ROOMS","/room/booking/system/view/rooms.fxml",new Image("/room/booking/system/icon/rooms.png"));
+        
+    }
+
+    @FXML
+    private void openVisitorList(ActionEvent event) throws IOException {
+
+        loadWindows("Visitors","/room/booking/system/view/visitors.fxml",new Image("/room/booking/system/icon/visitors.png"));
+        
+    }
+    
+    private void loadWindows (String title, String url, Image image) throws IOException{
+    
         Stage stage = new Stage();
         
-        Parent root = FXMLLoader.load(getClass().getResource("/room/booking/system/view/rooms.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource(url));
         
         Scene scene = new Scene(root);
         
-        stage.getIcons().add(new Image("/room/booking/system/icon/rooms.png"));
-        
+        stage.getIcons().add(image);
         stage.setScene(scene);
-        stage.setTitle("ROOMS");
+        stage.setTitle(title);
+        stage.resizableProperty().setValue(Boolean.FALSE);
         stage.show();
+    
+    }
+
+    @FXML
+    private void openMemberWindow(ActionEvent event) throws IOException {
+        
+        loadWindows("Members","/room/booking/system/view/members.fxml",new Image("/room/booking/system/icon/members.png"));
         
     }
     

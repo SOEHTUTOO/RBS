@@ -23,7 +23,7 @@ import room.booking.system.database.Database;
  */
 public class RoomDAO {
     
-    public void addRoom(Room room) throws SQLException{
+    public void addRoomToDB(Room room) throws SQLException{
        
         Connection connectionToDB = Database.getInstance().getConnection();
         String addRoomSql = "insert into rbsdb.rooms (id,slot,building) values (?,?,?)";

@@ -10,17 +10,17 @@ and open the template in the editor.
 
 *{
     
-    -fx-primary : #3F51B5;
+    -fx-primary : #1A237E;
     
 }
 
 .tab-header-background{
-    -fx-background-color: -fx-primary;
+    -fx-background-color: #3F51B5;
 }
 
 .tab{
     
-    -fx-background-color: -fx-primary;
+    -fx-background-color: #3F51B5;
     -fx-pref-width: 130px;
     -fx-pref-height: 40px;
     
@@ -28,7 +28,7 @@ and open the template in the editor.
 
 .custom_button{
     
-    -fx-border-color: black;
+    -fx-border-color: #7986CB;
     -fx-background-color: -fx-primary;
     -fx-text-fill: white;
     -fx-border-radius: 20px;

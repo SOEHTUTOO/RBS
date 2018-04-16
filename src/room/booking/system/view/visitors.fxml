@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ContextMenu?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="room.booking.system.controller.VisitorsController">
+   <children>
+      <Label alignment="CENTER" layoutY="5.0" prefHeight="40.0" prefWidth="650.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 20px;" text="Visitors List" textFill="WHITE" AnchorPane.bottomAnchor="461.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <TableView fx:id="visitorTable" layoutY="52.0" prefHeight="456.0" prefWidth="650.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0">
+        <columns>
+          <TableColumn fx:id="nameCol" prefWidth="175.0" text="Name" />
+          <TableColumn fx:id="passportCol" prefWidth="100.0" text="Passport" />
+            <TableColumn fx:id="nationCol" prefWidth="100.0" text="Nation" />
+            <TableColumn fx:id="mobileCol" prefWidth="125.0" text="Mobile" />
+            <TableColumn fx:id="emailCol" prefWidth="150.0" text="Email" />
+        </columns>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="View Full Detail" />
+                  <MenuItem mnemonicParsing="false" text="Edit" />
+                  <MenuItem mnemonicParsing="false" text="Add Room" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </TableView>
+   </children>
+</AnchorPane>

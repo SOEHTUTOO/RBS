@@ -16,6 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.stage.WindowEvent;
 import room.booking.system.database.Database;
 
@@ -51,6 +52,7 @@ public class Main extends Application {
         
         stage.setScene(scene);
         stage.setTitle("ROOM BOOKING SYSTEM");
+        stage.resizableProperty().setValue(Boolean.FALSE);
         stage.show();
         
         try {

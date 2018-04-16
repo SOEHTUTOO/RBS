@@ -14,15 +14,15 @@
 
 <AnchorPane id="AnchorPane" prefHeight="300.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="room.booking.system.controller.AddRoomController">
    <children>
-      <Label alignment="CENTER" layoutX="5.0" layoutY="5.0" prefHeight="50.0" prefWidth="390.0" style="-fx-background-color: #3333dd;" text="Add Room" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="5.0" layoutY="5.0" prefHeight="50.0" prefWidth="390.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 20px;" text="Add Room" textFill="WHITE">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
       <Separator layoutY="56.0" prefHeight="12.0" prefWidth="400.0" />
-      <VBox alignment="TOP_CENTER" layoutY="70.0" prefHeight="231.0" prefWidth="400.0" spacing="15.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+      <VBox alignment="TOP_CENTER" layoutY="62.0" prefHeight="239.0" prefWidth="400.0" spacing="15.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="62.0">
          <children>
-            <JFXTextArea fx:id="roomIdField" focusColor="#3333dd" prefHeight="30.0" prefWidth="380.0" promptText="ROOM ID" unFocusColor="BLACK">
+            <JFXTextArea fx:id="roomIdField" focusColor="#3f51b5" prefHeight="25.0" prefWidth="380.0" promptText="ROOM ID" unFocusColor="BLACK">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -44,7 +44,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <JFXComboBox fx:id="buildingCombox" focusColor="#3333dd" prefHeight="33.0" prefWidth="231.0" promptText="Choose Building" unFocusColor="BLACK" />
+                  <JFXComboBox fx:id="buildingCombox" editable="true" focusColor="#3333dd" prefHeight="33.0" prefWidth="231.0" promptText="Choose Building" unFocusColor="BLACK" />
                </children>
             </HBox>
             <HBox alignment="CENTER" prefHeight="50.0" prefWidth="380.0" spacing="20.0">

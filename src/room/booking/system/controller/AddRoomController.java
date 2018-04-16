@@ -69,7 +69,7 @@ public class AddRoomController implements Initializable {
         int slot = slotSpinner.getValue();
         String building = buildingCombox.getValue();
         
-        if(id.isEmpty() && building.isEmpty()) {
+        if(id.isEmpty() || building.isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Check Info");
             alert.setHeaderText(null);
@@ -80,7 +80,7 @@ public class AddRoomController implements Initializable {
         
         try {
             
-            roomDAO.addRoom(new Room(id,slot,building));
+            roomDAO.addRoomToDB(new Room(id,slot,building));
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("SUCCESS");
             alert.setHeaderText(null);

@@ -22,6 +22,14 @@ public class Member {
     private String mobile;
     private String address;
 
+    public Member(String name, String arcNo, String mobile) {
+        this.name = name;
+        this.arcNo = arcNo;
+        this.mobile = mobile;
+    }
+    
+    
+
     public Member(String name, Date birth, String idNo, String arcNo, String gender, String email, String mobile, String address) {
         this.name = name;
         this.birth = birth;

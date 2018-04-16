@@ -22,7 +22,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import room.booking.system.model.Room;
 import room.booking.system.model.RoomDAO;
 
@@ -67,9 +69,9 @@ public class RoomsController implements Initializable {
                 roomBtn = new JFXButton();
                 roomBtn.setText(room.getId());
                 if(room.isAvailable()){
-                    roomBtn.setStyle("-fx-background-color: #4CAF50; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #000000");
+                    roomBtn.setStyle("-fx-background-color: #009688; -fx-pref-height: 50px; -fx-pref-width: 150px; -fx-border-width: 2px; -fx-border-color: #004D40; -fx-font-size: 15pt; -fx-text-fill: #A7FFEB");
                 }else{
-                    roomBtn.setStyle("-fx-background-color: #F44336; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #ffffff");
+                    roomBtn.setStyle("-fx-background-color: #E91E63; -fx-pref-height: 50px; -fx-pref-width: 150px; -fx-border-width: 2px; -fx-border-color: #880E4F; -fx-font-size: 15pt; -fx-text-fill: #FCE4EC");
                 } 
                 aPane.getChildren().add(roomBtn);
                 
@@ -90,9 +92,9 @@ public class RoomsController implements Initializable {
                 roomBtn = new JFXButton();
                 roomBtn.setText(room.getId());
                 if(room.isAvailable()){
-                    roomBtn.setStyle("-fx-background-color: #4CAF50; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #000000");
+                    roomBtn.setStyle("-fx-background-color: #009688; -fx-pref-height: 50px; -fx-pref-width: 150px; -fx-border-width: 2px; -fx-border-color: #004D40; -fx-font-size: 15pt; -fx-text-fill: #A7FFEB");
                 }else{
-                    roomBtn.setStyle("-fx-background-color: #F44336; -fx-pref-width: 150px; -fx-border-width: 1px; -fx-border-color: #000000; -fx-font-size: 15pt; -fx-text-fill: #ffffff");
+                    roomBtn.setStyle("-fx-background-color: #E91E63; -fx-pref-height: 50px; -fx-pref-width: 150px; -fx-border-width: 2px; -fx-border-color: #880E4F; -fx-font-size: 15pt; -fx-text-fill: #FCE4EC");
                 } 
                 gPane.getChildren().add(roomBtn);
             }
@@ -117,6 +119,7 @@ public class RoomsController implements Initializable {
         
         stage.setScene(scene);
         stage.setTitle("Add Room");
+        stage.resizableProperty().setValue(Boolean.FALSE);
         stage.show();
         
     }

@@ -8,7 +8,11 @@ package room.booking.system.model;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import room.booking.system.database.Database;
 
 /**
@@ -41,6 +45,40 @@ public class MemberDAO {
         memberStmt.setString(7, gender);
         memberStmt.setString(8, address);
         memberStmt.execute();
+    }
+
+    public ObservableList<Member> getMemberList() throws SQLException {
+        
+       Connection connectionToDB = Database.getInstance().getConnection();
+        
+        ObservableList<Member> memberList = FXCollections.observableArrayList();
+        
+        String memberListSql = "select * from rbsdb.members";
+        
+        try {
+            Statement memberListStmt = connectionToDB.createStatement();
+            ResultSet memberResults = memberListStmt.executeQuery(memberListSql);
+            
+            while (memberResults.next()){
+            
+                String name = memberResults.getString("name");
+                String arcNo = memberResults.getString("arc");
+                String mobile = memberResults.getString("mobile");
+                
+                Member member = new Member(name,arcNo,mobile);
+                
+                memberList.add(member);
+                
+            
+            }
+            
+        } catch (SQLException ex) {
+            
+        }
+        
+    
+        return memberList; 
+       
     }
     
 }

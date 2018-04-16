@@ -41,6 +41,14 @@ public class Visitor {
         this.gender = gender;
         this.address = address;
     }
+
+    public Visitor(String name, String passport, String nation, String mobile, String email) {
+        this.name = name;
+        this.passport = passport;
+        this.nation = nation;
+        this.mobile = mobile;
+        this.email = email;
+    }
     
     
     
