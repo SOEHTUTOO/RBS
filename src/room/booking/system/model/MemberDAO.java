@@ -27,10 +27,11 @@ public class MemberDAO {
         Date birth = member.getBirth();
         String id = member.getIdNo();
         String arcNo = member.getArcNo();
-        String gender = member.getGender();
         String mobile = member.getMobile();
         String email = member.getEmail();
+        String gender = member.getGender();
         String address = member.getAddress();
+        
         
         Connection connectionToDB = Database.getInstance().getConnection();
         

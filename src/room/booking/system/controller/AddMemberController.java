@@ -83,6 +83,8 @@ public class AddMemberController implements Initializable {
         
         String id = idField.getText();
         String arcNo = arcField.getText();
+        String mobile = mobileField.getText();
+        String email = emailField.getText();
         
         String gender = null;
         
@@ -102,9 +104,7 @@ public class AddMemberController implements Initializable {
         
            gender = null;
         }
-
-        String mobile = mobileField.getText();
-        String email = emailField.getText();
+        
         String address = addressField.getText();
         
         if(name.isEmpty() || id.isEmpty() || arcNo.isEmpty() || birth==null || gender==null || mobile.isEmpty() || email.isEmpty() || address.isEmpty()){
@@ -119,7 +119,7 @@ public class AddMemberController implements Initializable {
         }
         
         try {
-            memberDAO.addMemberToDB(new Member(name,birth,id,arcNo,gender,mobile,email,address));
+            memberDAO.addMemberToDB(new Member(name,birth,id,arcNo,mobile,email,gender,address));
             
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("SUCCESS");

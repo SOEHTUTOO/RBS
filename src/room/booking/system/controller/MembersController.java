@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -23,7 +24,6 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import room.booking.system.model.Member;
 import room.booking.system.model.MemberDAO;
-import room.booking.system.model.Visitor;
 
 /**
  * FXML Controller class
@@ -48,6 +48,8 @@ public class MembersController implements Initializable {
     private JFXButton searchBtn;
     @FXML
     private JFXButton clearBtn;
+    @FXML
+    private TableColumn<Integer, Integer> noCol;
 
     /**
      * Initializes the controller class.
@@ -62,6 +64,9 @@ public class MembersController implements Initializable {
         nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
         arcCol.setCellValueFactory(new PropertyValueFactory<>("arcNo"));
         mobileCol.setCellValueFactory(new PropertyValueFactory<>("mobile"));
+        
+        noCol.setSortable(false);
+        noCol.setCellValueFactory(column-> new ReadOnlyObjectWrapper<>(memberTable.getItems().indexOf(column.getValue())+1));
         
         ObservableList<Member> memberList = null;
         

@@ -59,9 +59,9 @@ public class Database {
     
     private void createTB () throws SQLException {
     
-        String createRoomTB = "create table if not exists rbsdb.rooms (id varchar(50) unique key, slot int, building varchar(50), is_available boolean default true)";
-        String createVisitorTB = "create table if not exists rbsdb.visitors (name varchar(100), birth date, arrival date, departure date, passport varchar(50) unique key, visa varchar(50), nation varchar(100), organization varchar(100), mobile varchar(30), email varchar(50), gender varchar(10), address varchar(255))";
-        String createMemberTB = "create table if not exists rbsdb.members (name varchar(100), birth date, id varchar(30) unique key, arc varchar(15), mobile varchar(30), email varchar(50), gender varchar(10), address varchar(255))";
+        String createRoomTB = "create table if not exists rbsdb.rooms (id varchar(50) primary key, slot int, building varchar(50), is_available boolean default true)";
+        String createVisitorTB = "create table if not exists rbsdb.visitors (name varchar(100), birth date, arrival date, departure date, passport varchar(50) primary key, visa varchar(50), nation varchar(100), organization varchar(100), mobile varchar(30), email varchar(50), gender varchar(10), address varchar(255))";
+        String createMemberTB = "create table if not exists rbsdb.members (name varchar(100), birth date, id varchar(30) primary key, arc varchar(15), mobile varchar(30), email varchar(50), gender varchar(10), address varchar(255))";
         String createRecordTB = "create table if not exists rbsdb.records (room_id varchar(50), visitor_name varchar(100), member_name varchar(100),  foreign key (room_id) references rooms(id), foreign key (visitor_name) references visitors(name), foreign key (member_name) references members(name))";
         
         Statement createStmt = connectionToDB.createStatement();

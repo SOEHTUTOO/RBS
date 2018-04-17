@@ -17,9 +17,9 @@ public class Member {
     private Date birth;
     private String idNo;
     private String arcNo;
-    private String gender;
     private String email;
     private String mobile;
+    private String gender;
     private String address;
 
     public Member(String name, String arcNo, String mobile) {
@@ -27,20 +27,20 @@ public class Member {
         this.arcNo = arcNo;
         this.mobile = mobile;
     }
-    
-    
 
-    public Member(String name, Date birth, String idNo, String arcNo, String gender, String email, String mobile, String address) {
+    public Member(String name, Date birth, String idNo, String arcNo, String mobile, String email, String gender, String address) {
         this.name = name;
         this.birth = birth;
         this.idNo = idNo;
         this.arcNo = arcNo;
-        this.gender = gender;
         this.email = email;
         this.mobile = mobile;
+        this.gender = gender;
         this.address = address;
     }
 
+    
+    
     
     
     public String getName() {
