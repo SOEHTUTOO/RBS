@@ -58,7 +58,8 @@ public class HomeController implements Initializable {
             if(Database.getInstance()!=null){
                
                 dbLabel.setText("Database - [Connected]");
-            }    
+                dbLabel.setStyle("-fx-font-weight:bold; -fx-text-fill: #1B5E20;");
+            } 
           
         } catch (SQLException ex) {
        
