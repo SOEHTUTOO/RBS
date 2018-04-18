@@ -24,7 +24,7 @@
                </image>
             </ImageView>
          </graphic></Label>
-      <Label fx:id="dbLabel" alignment="CENTER" layoutX="151.0" layoutY="526.0" prefHeight="25.0" prefWidth="400.0" text="Database - [Disconnected]">
+      <Label fx:id="dbLabel" alignment="CENTER" layoutX="151.0" layoutY="526.0" prefHeight="25.0" prefWidth="400.0" text="Database - [Disconnected]" textFill="#b71c1c">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
