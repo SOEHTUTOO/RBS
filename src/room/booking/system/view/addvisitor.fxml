@@ -13,10 +13,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="201.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="room.booking.system.controller.AddVisitorController">
+<AnchorPane id="AnchorPane" prefHeight="201.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="room.booking.system.controller.AddVisitorController">
    <children>
       <Separator layoutY="45.0" prefHeight="18.0" prefWidth="650.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="45.0" />
-      <Label alignment="CENTER" layoutX="7.0" layoutY="5.0" prefHeight="43.0" prefWidth="637.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 20px;" text="VISITOR FORM" textFill="WHITE" AnchorPane.bottomAnchor="465.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="5.0">
+      <Label alignment="CENTER" layoutX="7.0" layoutY="7.0" prefHeight="35.0" prefWidth="637.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 20px;" text="VISITOR FORM" textFill="WHITE" AnchorPane.bottomAnchor="467.0" AnchorPane.leftAnchor="7.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="7.0">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>

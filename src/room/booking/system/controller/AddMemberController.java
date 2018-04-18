@@ -127,6 +127,9 @@ public class AddMemberController implements Initializable {
             alert.setContentText("SUCCESS.");
             alert.show();
             
+            Stage stage = (Stage) closeBtn.getScene().getWindow();
+            stage.close();
+            
         } catch (SQLException ex) {
             
             Alert alert = new Alert(Alert.AlertType.ERROR);

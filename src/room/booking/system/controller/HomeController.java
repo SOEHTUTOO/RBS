@@ -8,8 +8,11 @@ package room.booking.system.controller;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -18,8 +21,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import room.booking.system.database.Database;
 
 /**
  * FXML Controller class
@@ -40,19 +45,31 @@ public class HomeController implements Initializable {
     private JFXButton visitorBtn;
     @FXML
     private JFXButton memberBtn;
+    @FXML
+    private Label dbLabel;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        
+        try {
+            if(Database.getInstance()!=null){
+               
+                dbLabel.setText("Database - [Connected]");
+            }    
+          
+        } catch (SQLException ex) {
+       
+        }
+        
     }    
 
     @FXML
     private void openVisitorForm(ActionEvent event) throws IOException {
         
-        loadWindows("Visitor Form","/room/booking/system/view/addvisitor.fxml",new Image("/room/booking/system/icon/booking.png"));
+        loadWindows("Visitor Form","/room/booking/system/view/addvisitor.fxml",new Image("/room/booking/system/icon/visitors.png"));
         
     }
 

@@ -86,6 +86,9 @@ public class AddRoomController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Room Added.");
             alert.show();
+            
+            Stage stage = (Stage) cancelBtn.getScene().getWindow();
+            stage.close();
         
         } catch (SQLException ex) {
           

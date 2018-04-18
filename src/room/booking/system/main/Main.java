@@ -48,7 +48,7 @@ public class Main extends Application {
             }
         });
         
-        stage.getIcons().add(new Image("/room/booking/system/icon/booking.png"));
+        stage.getIcons().add(new Image("/room/booking/system/icon/appLogo.png"));
         
         stage.setScene(scene);
         stage.setTitle("ROOM BOOKING SYSTEM");
