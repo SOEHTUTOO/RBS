@@ -30,10 +30,11 @@
           <TableColumn fx:id="mobileCol" maxWidth="300.0" minWidth="200.0" prefWidth="225.0" text="Contact Number" />
         </columns>
          <contextMenu>
-            <ContextMenu>
+            <ContextMenu fx:id="memberContextMenu">
               <items>
-                <MenuItem mnemonicParsing="false" text="Detail" />
-                  <MenuItem mnemonicParsing="false" text="Edit" />
+                <MenuItem fx:id="detailMenu" mnemonicParsing="false" onAction="#showMemberDetail" text="Detail" />
+                  <MenuItem fx:id="editMenu" mnemonicParsing="false" onAction="#editMemberInfo" text="Edit" />
+                  <MenuItem fx:id="deleteMenu" mnemonicParsing="false" onAction="#deleteMember" text="Delete" />
               </items>
             </ContextMenu>
          </contextMenu>

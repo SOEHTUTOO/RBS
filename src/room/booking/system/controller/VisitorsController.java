@@ -11,6 +11,7 @@ import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.util.Locale;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -183,69 +184,70 @@ public class VisitorsController implements Initializable {
 
         ObservableList<Visitor> visitors = visitorDAO.searchVisitors(visitor.getName());
         
-        Label nameLb = new Label("");
-        nameLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        Label birthLb = new Label("");
-        birthLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        Label arrivalLb = new Label("");
-        arrivalLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        Label departureLb = new Label("");
-        departureLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        Label passportLb = new Label("");
-        passportLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        Label visaLb = new Label("");
-        visaLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        Label nationLb = new Label("");
-        nationLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        Label organizationLb = new Label("");
-        organizationLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        Label mobileLb = new Label("");
-        mobileLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        Label emailLb = new Label("");
-        emailLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        Label genderLb = new Label("");
-        genderLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        Label addressLb = new Label("");
-        addressLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        addressLb.setWrapText(true);
+        Label nameData = creatDataLb();
+        Label birthData = creatDataLb();
+        Label arrivalData = creatDataLb();
+        Label departureData = creatDataLb();
+        Label passportData = creatDataLb();
+        Label visaData = creatDataLb();
+        Label nationData = creatDataLb();
+        Label organizationData = creatDataLb();
+        Label mobileData = creatDataLb();
+        Label emailData = creatDataLb();
+        Label genderData = creatDataLb();
+        Label addressData = creatDataLb(); 
+        addressData.setWrapText(true);
+        
+        HBox nameBox = createDetailHBox("NAME", nameData);
+        HBox birthBox = createDetailHBox("BIRTH DATE", birthData);
+        HBox arrivalBox = createDetailHBox("ARRIVAL DATE", arrivalData);
+        HBox departureBox = createDetailHBox("DEPARTURE DATE", departureData);
+        HBox passportBox = createDetailHBox("PASSPORT", passportData);
+        HBox visaBox = createDetailHBox("VISA", visaData);
+        HBox nationBox = createDetailHBox("NATIONALITY", nationData);
+        HBox organizationBox = createDetailHBox("ORGANIZATION", organizationData);
+        HBox mobileBox = createDetailHBox("MOBILE", mobileData);
+        HBox emailBox = createDetailHBox("EMAIL", emailData);
+        HBox genderBox = createDetailHBox("GENDER", genderData);
+        HBox addressBox = createDetailHBox("ADDRESS", addressData);
+        
         
         VBox vbox = new VBox();
-        vbox.setAlignment(Pos.TOP_LEFT);
-	vbox.setPadding(new Insets(20,20,20,20));
-	vbox.setSpacing(10);
-        vbox.getChildren().add(nameLb);
-        vbox.getChildren().add(birthLb);
-        vbox.getChildren().add(arrivalLb);
-        vbox.getChildren().add(departureLb);
-        vbox.getChildren().add(passportLb);
-        vbox.getChildren().add(visaLb);
-        vbox.getChildren().add(nationLb);
-        vbox.getChildren().add(organizationLb);
-        vbox.getChildren().add(mobileLb);
-        vbox.getChildren().add(emailLb);
-        vbox.getChildren().add(genderLb);
-        vbox.getChildren().add(addressLb);
+        setVBox(vbox);
+        vbox.getChildren().add(nameBox);
+        vbox.getChildren().add(birthBox);
+        vbox.getChildren().add(arrivalBox);
+        vbox.getChildren().add(departureBox);
+        vbox.getChildren().add(passportBox);
+        vbox.getChildren().add(visaBox);
+        vbox.getChildren().add(nationBox);
+        vbox.getChildren().add(organizationBox);
+        vbox.getChildren().add(mobileBox);
+        vbox.getChildren().add(emailBox);
+        vbox.getChildren().add(genderBox);
+        vbox.getChildren().add(addressBox);
         
         for(Visitor result: visitors){
         
-            nameLb.setText("NAME\t\t\t\t\t-\t"+result.getName());
             
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-YYYY");
+            nameData.setText(result.getName());
+            
+            SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MMMM-YYYY", Locale.ENGLISH);
             String birthStr = dateFormat.format(result.getBirth());
             String arrivalStr = dateFormat.format(result.getArrival());
             String departureStr = dateFormat.format(result.getDeparture());
-            birthLb.setText("BIRTH DATE\t\t\t\t-\t"+birthStr);
-            arrivalLb.setText("ARRIVAL DATE\t\t\t-\t"+arrivalStr);
-            departureLb.setText("DEPARTURE DATE\t\t\t-\t"+departureStr);
+            birthData.setText(birthStr);
+            arrivalData.setText(arrivalStr);
+            departureData.setText(departureStr);
             
-            passportLb.setText("PASSPORT\t\t\t\t-\t"+result.getPassport());
-            visaLb.setText("VISA\t\t\t\t\t-\t"+result.getVisa());
-            nationLb.setText("NATIONALITY\t\t\t-\t"+result.getNation());
-            organizationLb.setText("ORGANIZATION\t\t\t-\t"+result.getOrganization());
-            mobileLb.setText("MOBILE NUMBER\t\t\t-\t"+result.getMobile());
-            emailLb.setText("EMAIL\t\t\t\t\t-\t"+result.getEmail());
-            genderLb.setText("GENDER\t\t\t\t\t-\t"+result.getGender());
-            addressLb.setText("ADDRESS\t\t\t\t-\n"+result.getAddress());
+            passportData.setText(result.getPassport());
+            visaData.setText(result.getVisa());
+            nationData.setText(result.getNation());
+            organizationData.setText(result.getOrganization());
+            mobileData.setText(result.getMobile());
+            emailData.setText(result.getEmail());
+            genderData.setText(result.getGender());
+            addressData.setText(result.getAddress());
         
         }
         
@@ -264,151 +266,48 @@ public class VisitorsController implements Initializable {
     @FXML
     private void editVisitorInfo(ActionEvent event) throws SQLException {
         
-        Label nameLb = new Label("NAME");
-        nameLb.setPrefWidth(150);
-        nameLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        TextField nameField = new TextField();
-        nameField.setPrefWidth(250);
-        HBox nameBox = new HBox();
-        nameBox.setAlignment(Pos.TOP_LEFT);
-	nameBox.setPadding(new Insets(0,0,0,0));
-	nameBox.setSpacing(10);
-        nameBox.getChildren().add(nameLb);
-        nameBox.getChildren().add(nameField);
         
-        Label birthLb = new Label("BIRTH DATE");
-        birthLb.setPrefWidth(150);
-        birthLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
+        TextField nameField = createDataField();
+        HBox nameBox = createEditHBox("NAME", nameField);
+
         DatePicker birthPicker = new DatePicker();
         birthPicker.setPrefWidth(250);
-        HBox birthBox = new HBox();
-        birthBox.setAlignment(Pos.TOP_LEFT);
-	birthBox.setPadding(new Insets(0,0,0,0));
-	birthBox.setSpacing(10);
-        birthBox.getChildren().add(birthLb);
-        birthBox.getChildren().add(birthPicker);
+        HBox birthBox = createDateHBox("BIRTH DATE", birthPicker);
         
-        Label arrivalLb = new Label("ARRIVAL DATE");
-        arrivalLb.setPrefWidth(150);
-        arrivalLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
         DatePicker arrivalPicker = new DatePicker();
         arrivalPicker.setPrefWidth(250);
-        HBox arrivalBox = new HBox();
-        arrivalBox.setAlignment(Pos.TOP_LEFT);
-	arrivalBox.setPadding(new Insets(0,0,0,0));
-	arrivalBox.setSpacing(10);
-        arrivalBox.getChildren().add(arrivalLb);
-        arrivalBox.getChildren().add(arrivalPicker);
+        HBox arrivalBox = createDateHBox("ARRIVAL DATE", arrivalPicker);
         
-        Label departureLb = new Label("DEPARTURE DATE");
-        departureLb.setPrefWidth(150);
-        departureLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
         DatePicker departurePicker = new DatePicker();
         departurePicker.setPrefWidth(250);
-        HBox departureBox = new HBox();
-        departureBox.setAlignment(Pos.TOP_LEFT);
-	departureBox.setPadding(new Insets(0,0,0,0));
-	departureBox.setSpacing(10);
-        departureBox.getChildren().add(departureLb);
-        departureBox.getChildren().add(departurePicker);
+        HBox departureBox = createDateHBox("DEPARTURE DATE", departurePicker);
         
-        Label passportLb = new Label("PASSPORT");
-        passportLb.setPrefWidth(150);
-        passportLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        TextField passportField = new TextField();
-        passportField.setPrefWidth(250);
-        HBox passportBox = new HBox();
-        passportBox.setAlignment(Pos.TOP_LEFT);
-	passportBox.setPadding(new Insets(0,0,0,0));
-	passportBox.setSpacing(10);
-        passportBox.getChildren().add(passportLb);
-        passportBox.getChildren().add(passportField);
+        TextField passportField = createDataField();
+        HBox passportBox = createEditHBox("PASSPORT", passportField);
         
-        Label visaLb = new Label("VISA");
-        visaLb.setPrefWidth(150);
-        visaLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        TextField visaField = new TextField();
-        visaField.setPrefWidth(250);
-        HBox visaBox = new HBox();
-        visaBox.setAlignment(Pos.TOP_LEFT);
-	visaBox.setPadding(new Insets(0,0,0,0));
-	visaBox.setSpacing(10);
-        visaBox.getChildren().add(visaLb);
-        visaBox.getChildren().add(visaField);
+        TextField visaField = createDataField();
+        HBox visaBox = createEditHBox("VISA", visaField);
         
-        Label nationLb = new Label("NATIONALITY");
-        nationLb.setPrefWidth(150);
-        nationLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        TextField nationField = new TextField();
-        nationField.setPrefWidth(250);
-        HBox nationBox = new HBox();
-        nationBox.setAlignment(Pos.TOP_LEFT);
-	nationBox.setPadding(new Insets(0,0,0,0));
-	nationBox.setSpacing(10);
-        nationBox.getChildren().add(nationLb);
-        nationBox.getChildren().add(nationField);
-        
-        Label orgnizeLb = new Label("ORGANIZATION");
-        orgnizeLb.setPrefWidth(150);
-        orgnizeLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        TextField orgnizeField = new TextField();
-        orgnizeField.setPrefWidth(250);
-        HBox orgnizeBox = new HBox();
-        orgnizeBox.setAlignment(Pos.TOP_LEFT);
-	orgnizeBox.setPadding(new Insets(0,0,0,0));
-	orgnizeBox.setSpacing(10);
-        orgnizeBox.getChildren().add(orgnizeLb);
-        orgnizeBox.getChildren().add(orgnizeField);
-        
-        Label mobileLb = new Label("MOBILE");
-        mobileLb.setPrefWidth(150);
-        mobileLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        TextField mobileField = new TextField();
-        mobileField.setPrefWidth(250);
-        HBox mobileBox = new HBox();
-        mobileBox.setAlignment(Pos.TOP_LEFT);
-	mobileBox.setPadding(new Insets(0,0,0,0));
-	mobileBox.setSpacing(10);
-        mobileBox.getChildren().add(mobileLb);
-        mobileBox.getChildren().add(mobileField);
-        
-        Label emailLb = new Label("EMAIL");
-        emailLb.setPrefWidth(150);
-        emailLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
-        TextField emailField = new TextField();
-        emailField.setPrefWidth(250);
-        HBox emailBox = new HBox();
-        emailBox.setAlignment(Pos.TOP_LEFT);
-	emailBox.setPadding(new Insets(0,0,0,0));
-	emailBox.setSpacing(10);
-        emailBox.getChildren().add(emailLb);
-        emailBox.getChildren().add(emailField);
-        
-        Label genderLb = new Label("GENDER");
-        genderLb.setPrefWidth(150);
-        genderLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
+        TextField nationField = createDataField();
+        HBox nationBox = createEditHBox("NATIONALITY", nationField);
+                
+        TextField organizeField = createDataField();
+        HBox orgnizeBox = createEditHBox("ORGANIZATION", organizeField);
+                
+        TextField mobileField = createDataField();
+        HBox mobileBox = createEditHBox("MOBILE", mobileField);
+                
+        TextField emailField = createDataField();
+        HBox emailBox = createEditHBox("EMAIL", emailField);
+                
         CheckBox male = new CheckBox("MALE");
         CheckBox female = new CheckBox("FEMALE");
-        HBox genderBox = new HBox();
-        genderBox.setAlignment(Pos.TOP_LEFT);
-	genderBox.setPadding(new Insets(0,0,0,0));
-	genderBox.setSpacing(10);
-        genderBox.getChildren().add(genderLb);
-        genderBox.getChildren().add(male);
-        genderBox.getChildren().add(female);
+        HBox genderBox = createCheckHBox("GENDER", male, female);
         
-        Label addressLb = new Label("ADDRESS");
-        addressLb.setPrefWidth(150);
-        addressLb.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
         TextArea addressArea = new TextArea();
         addressArea.setPrefWidth(250);
         addressArea.setWrapText(true);
-        HBox addressBox = new HBox();
-        addressBox.setAlignment(Pos.TOP_LEFT);
-	addressBox.setPadding(new Insets(0,0,0,0));
-	addressBox.setSpacing(10);
-        addressBox.getChildren().add(addressLb);
-        addressBox.getChildren().add(addressArea);
+        HBox addressBox = createAddressHBox("ADDRESS", addressArea);
         
         JFXButton saveBtn = new JFXButton("SAVE");
         saveBtn.setStyle("-fx-background-color: #009688; -fx-pref-height: 25px; -fx-pref-width: 90px; -fx-border-width: 2px; -fx-border-color: #004D40; -fx-font-size: 13pt; -fx-text-fill: #A7FFEB");
@@ -426,9 +325,7 @@ public class VisitorsController implements Initializable {
         btnBox.getChildren().add(closeBtn);
         
         VBox vbox = new VBox();
-        vbox.setAlignment(Pos.TOP_LEFT);
-	vbox.setPadding(new Insets(20,20,20,20));
-	vbox.setSpacing(5);
+        setVBox(vbox);
         vbox.getChildren().add(nameBox);
         vbox.getChildren().add(birthBox);
         vbox.getChildren().add(arrivalBox);
@@ -456,7 +353,7 @@ public class VisitorsController implements Initializable {
         passportField.setText(result.getPassport());
         visaField.setText(result.getVisa());
         nationField.setText(result.getNation());
-        orgnizeField.setText(result.getOrganization());
+        organizeField.setText(result.getOrganization());
         mobileField.setText(result.getMobile());
         emailField.setText(result.getEmail());
         if(result.getGender().equals("Male")){
@@ -488,7 +385,7 @@ public class VisitorsController implements Initializable {
             String passport = passportField.getText();
             String visa = visaField.getText();
             String nation = nationField.getText();
-            String organize = orgnizeField.getText();
+            String organize = organizeField.getText();
             String mobile = mobileField.getText();
             String email = emailField.getText();
             String gender = null;
@@ -565,7 +462,7 @@ public class VisitorsController implements Initializable {
                 
             }
                     
-        }
+        }else{}
 				
         });
         
@@ -627,6 +524,123 @@ public class VisitorsController implements Initializable {
                     
         }
         
+    }
+    
+    private Label creatDataLb(){
+        
+        Label label = new Label("");
+        label.setPrefWidth(230);
+        label.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
+   
+        return label;
+    }
+    
+    private HBox createDetailHBox (String name, Label data) {
+        
+        Label textLabel = new Label(name);
+        textLabel.setPrefWidth(150);
+        textLabel.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
+    
+        HBox hbox = new HBox();
+        
+        hbox.setAlignment(Pos.TOP_LEFT);
+	hbox.setPadding(new Insets(0,0,0,0));
+	hbox.setSpacing(10);
+        hbox.getChildren().add(textLabel);
+                
+        Label dash = new Label(">");
+        dash.setPrefWidth(20);
+        dash.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
+        hbox.getChildren().add(dash);
+        
+        hbox.getChildren().add(data);
+        
+        return hbox;
+        
+    }
+    
+    private void setVBox (VBox vbox) {
+    
+        vbox.setAlignment(Pos.TOP_LEFT);
+	vbox.setPadding(new Insets(20,20,20,20));
+	vbox.setSpacing(5);
+        
+    }
+
+    private HBox createEditHBox(String name, TextField data){
+    
+        Label label = new Label(name);
+        label.setPrefWidth(150);
+        label.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
+        
+        HBox hbox = new HBox();
+        hbox.setAlignment(Pos.TOP_LEFT);
+	hbox.setPadding(new Insets(0,0,0,0));
+	hbox.setSpacing(10);
+        hbox.getChildren().add(label);
+        hbox.getChildren().add(data);
+        
+        return hbox;
+    }
+    
+    private HBox createDateHBox (String name, DatePicker data){
+    
+        Label label = new Label(name);
+        label.setPrefWidth(150);
+        label.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
+        
+        HBox hbox = new HBox();
+        hbox.setAlignment(Pos.TOP_LEFT);
+	hbox.setPadding(new Insets(0,0,0,0));
+	hbox.setSpacing(10);
+        hbox.getChildren().add(label);
+        hbox.getChildren().add(data);
+        
+        return hbox;
+        
+    }
+    
+    private HBox createCheckHBox(String name, CheckBox male, CheckBox female){
+    
+        Label label = new Label(name);
+        label.setPrefWidth(150);
+        label.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
+        
+        HBox hbox = new HBox();
+        hbox.setAlignment(Pos.TOP_LEFT);
+	hbox.setPadding(new Insets(0,0,0,0));
+	hbox.setSpacing(10);
+        hbox.getChildren().add(label);
+        hbox.getChildren().add(male);
+        hbox.getChildren().add(female);
+        
+        return hbox;
+        
+    }
+    
+    private HBox createAddressHBox (String name, TextArea data){
+    
+        Label label = new Label(name);
+        label.setPrefWidth(150);
+        label.setStyle("-fx-font-weight:bold; -fx-font-size:13px; -fx-text-fill: black;");
+        
+        HBox hbox = new HBox();
+        hbox.setAlignment(Pos.TOP_LEFT);
+	hbox.setPadding(new Insets(0,0,0,0));
+	hbox.setSpacing(10);
+        hbox.getChildren().add(label);
+        hbox.getChildren().add(data);
+        
+        return hbox;
+    
+    }
+    
+    private TextField createDataField(){
+    
+        TextField textField = new TextField();
+        textField.setPrefWidth(250);
+        
+        return textField;
     }
     
 }
