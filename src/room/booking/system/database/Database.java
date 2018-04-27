@@ -69,7 +69,7 @@ public class Database {
         createStmt.execute(createRoomTB);
         createStmt.execute(createVisitorTB);
         createStmt.execute(createMemberTB);
-        createStmt.execute(createRecordTB);
+        //createStmt.execute(createRecordTB);
         
         
     }
