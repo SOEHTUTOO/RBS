@@ -62,14 +62,14 @@ public class Database {
         String createRoomTB = "create table if not exists rbsdb.rooms (id varchar(50) primary key, slot int, building varchar(50), is_available boolean default true)";
         String createVisitorTB = "create table if not exists rbsdb.visitors (name varchar(100), birth date, arrival date, departure date, passport varchar(50) primary key, visa varchar(50), nation varchar(100), organization varchar(100), mobile varchar(30), email varchar(50), gender varchar(10), address varchar(255))";
         String createMemberTB = "create table if not exists rbsdb.members (name varchar(100), birth date, id varchar(30) primary key, arc varchar(15), mobile varchar(30), email varchar(50), gender varchar(10), address varchar(255))";
-        String createRecordTB = "create table if not exists rbsdb.records (room_id varchar(50) foreign key references rooms(id), visitor_passport varchar(50) foreign key references visitors(passport), member_name id(30) foreign key references members(id))";
+        String createRecordTB = "create table if not exists rbsdb.records (room_id varchar(50), foreign key (room_id) references rooms(id), visitor_passport varchar(50), foreign key (visitor_passport) references visitors(passport), member_name varchar(30), foreign key (member_name) references members(id))";
         
         Statement createStmt = connectionToDB.createStatement();
         
         createStmt.execute(createRoomTB);
         createStmt.execute(createVisitorTB);
         createStmt.execute(createMemberTB);
-        //createStmt.execute(createRecordTB);
+        createStmt.execute(createRecordTB);
         
         
     }
