@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="room.booking.system.controller.VisitorsController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="room.booking.system.controller.VisitorsController">
    <top>
       <Label alignment="CENTER" layoutY="2.0" prefHeight="35.0" prefWidth="650.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 20px;" text="Visitors" textFill="WHITE" BorderPane.alignment="CENTER">
          <font>
@@ -24,8 +24,8 @@
    <center>
       <TableView fx:id="visitorTable" layoutY="40.0" prefHeight="417.0" prefWidth="650.0" stylesheets="@../css/default.css" BorderPane.alignment="CENTER">
         <columns>
-            <TableColumn fx:id="noCol" prefWidth="30.0" text="No" />
-          <TableColumn fx:id="nameCol" prefWidth="170.0" text="Name" />
+            <TableColumn fx:id="noCol" prefWidth="37.0" text="No" />
+          <TableColumn fx:id="nameCol" prefWidth="163.0" text="Name" />
           <TableColumn fx:id="passportCol" prefWidth="100.0" text="Passport" />
             <TableColumn fx:id="nationCol" prefWidth="100.0" text="Nation" />
             <TableColumn fx:id="mobileCol" prefWidth="110.0" text="Mobile" />

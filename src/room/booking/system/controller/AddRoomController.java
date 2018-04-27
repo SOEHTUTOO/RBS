@@ -15,6 +15,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.stage.Stage;
@@ -70,33 +71,24 @@ public class AddRoomController implements Initializable {
         String building = buildingCombox.getValue();
         
         if(id.isEmpty() || building.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Check Info");
-            alert.setHeaderText(null);
-            alert.setContentText("Please fill correct room detail.");
-            alert.show();
+            
+            showAlert(AlertType.ERROR, "Check Info", "Please fill correct room detail.");
+            
             return;
         }
         
         try {
             
             roomDAO.addRoomToDB(new Room(id,slot,building));
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("SUCCESS");
-            alert.setHeaderText(null);
-            alert.setContentText("Room Added.");
-            alert.show();
+            
+              showAlert(AlertType.INFORMATION, "SUCCESS", "Room Added");
             
             Stage stage = (Stage) cancelBtn.getScene().getWindow();
             stage.close();
         
         } catch (SQLException ex) {
-          
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("ERROR");
-            alert.setHeaderText(null);
-            alert.setContentText("Something wrong!");
-            alert.show();
+
+            showAlert(AlertType.ERROR, "ERROR", "Something went wrong!");
         }
        
     }
@@ -109,5 +101,14 @@ public class AddRoomController implements Initializable {
         
     }
     
+    private void showAlert(AlertType type, String header, String content){
+    
+        Alert alert = new Alert(type);
+        alert.setTitle(header);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+        alert.show();
+    
+    }
     
 }
