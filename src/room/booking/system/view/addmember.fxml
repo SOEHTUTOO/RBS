@@ -13,15 +13,15 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="room.booking.system.controller.AddMemberController">
+<AnchorPane id="AnchorPane" prefHeight="522.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="room.booking.system.controller.AddMemberController">
    <children>
-      <Label alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="35.0" prefWidth="380.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 20px;" text="Member Form" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="10.0" layoutY="8.0" prefHeight="35.0" prefWidth="380.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 20px;" text="Member Form" textFill="WHITE">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Label>
-      <Separator layoutY="50.0" prefHeight="13.0" prefWidth="400.0" />
-      <VBox layoutY="60.0" prefHeight="540.0" prefWidth="400.0" spacing="20.0">
+      <Separator layoutY="46.0" prefHeight="13.0" prefWidth="400.0" />
+      <VBox layoutY="46.0" prefHeight="480.0" prefWidth="400.0" spacing="20.0">
          <padding>
             <Insets bottom="15.0" left="10.0" right="10.0" top="15.0" />
          </padding>
@@ -80,12 +80,12 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextArea fx:id="addressField" focusColor="#3f51b5" prefHeight="118.0" prefWidth="380.0" promptText="Address" unFocusColor="BLACK">
+            <JFXTextArea fx:id="addressField" focusColor="#3f51b5" prefHeight="66.0" prefWidth="380.0" promptText="Address" unFocusColor="BLACK">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </JFXTextArea>
-            <HBox alignment="CENTER" prefHeight="52.0" prefWidth="380.0" spacing="20.0">
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="380.0" spacing="20.0">
                <children>
                   <JFXButton fx:id="saveBtn" onAction="#saveMemberToDB" prefHeight="50.0" prefWidth="100.0" styleClass="custom_button" stylesheets="@../css/default.css" text="SAVE" textFill="WHITE">
                      <font>

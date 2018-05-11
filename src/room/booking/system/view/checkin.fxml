@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
@@ -17,7 +18,7 @@
          <children>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="350.0" spacing="20.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: gray;" text="CHECK IN">
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 20px;" text="CHECK IN" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
@@ -29,7 +30,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="autoSearch" prefHeight="30.0" prefWidth="250.0" promptText="SEARCH Visitor">
+                        <JFXTextField fx:id="autoSearch" focusColor="#3f51b5" prefHeight="30.0" prefWidth="250.0" promptText="SEARCH Visitor" unFocusColor="BLACK">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -43,7 +44,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <JFXTextField fx:id="autoRoom" prefHeight="30.0" prefWidth="250.0" promptText="SEARCH Room">
+                        <JFXTextField fx:id="autoRoom" focusColor="#3f51b5" prefHeight="30.0" prefWidth="250.0" promptText="SEARCH Room" unFocusColor="BLACK">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -57,7 +58,21 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <JFXComboBox fx:id="memberCombo" prefHeight="30.0" prefWidth="250.0" promptText="Choose..." />
+                        <JFXComboBox fx:id="memberCombo" focusColor="#3f51b5" prefHeight="30.0" prefWidth="250.0" promptText="Choose..." unFocusColor="BLACK" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="50.0" prefWidth="200.0" spacing="20.0">
+                     <children>
+                        <JFXButton fx:id="saveBtn" onAction="#saveCheckIn" prefHeight="40.0" prefWidth="100.0" styleClass="custom_button" stylesheets="@../css/default.css" text="Save">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="closeBtn" onAction="#closeWindow" prefHeight="40.0" prefWidth="100.0" styleClass="custom_button" stylesheets="@../css/default.css" text="Close">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </JFXButton>
                      </children>
                   </HBox>
                </children>
@@ -70,14 +85,14 @@
             </VBox>
             <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="350.0" spacing="10.0">
                <children>
-                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: gray;" text="AVAILABLE ROOMS">
+                  <Label alignment="CENTER" prefHeight="35.0" prefWidth="300.0" style="-fx-background-color: #3F51B5; -fx-background-radius: 20px;" text="AVAILABLE ROOMS" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <ScrollPane prefHeight="350.0" prefWidth="350.0">
+                  <ScrollPane prefHeight="380.0" prefWidth="330.0">
                      <content>
-                        <FlowPane fx:id="avaRoomsPane" hgap="5.0" prefHeight="345.0" prefWidth="325.0" vgap="5.0">
+                        <FlowPane fx:id="avaRoomsPane" hgap="5.0" prefHeight="375.0" prefWidth="325.0" vgap="5.0">
                            <padding>
                               <Insets bottom="5.0" left="15.0" right="5.0" top="5.0" />
                            </padding></FlowPane>

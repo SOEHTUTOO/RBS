@@ -68,5 +68,15 @@ public class RoomDAO {
     
         return roomList;
     }
+
+    public void updateRoom(String roomID) throws SQLException {
+        
+        Connection connectionToDB = Database.getInstance().getConnection();
+        String sql = "update rbsdb.rooms set is_available=0 where id=?";
+        PreparedStatement stmt = connectionToDB.prepareStatement(sql);
+        stmt.setString(1, roomID);
+        stmt.execute();
+        
+    }
     
 }

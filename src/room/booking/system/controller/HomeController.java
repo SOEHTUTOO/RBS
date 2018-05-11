@@ -47,6 +47,7 @@ public class HomeController implements Initializable {
     private Label dbLabel;
     @FXML
     private JFXButton checkinBtn;
+   
 
     /**
      * Initializes the controller class.
@@ -59,7 +60,14 @@ public class HomeController implements Initializable {
                
                 dbLabel.setText("Database - [Connected]");
                 dbLabel.setStyle("-fx-font-weight:bold; -fx-text-fill: #1B5E20;");
-            } 
+                
+            } else {
+            
+                dbLabel.setText("Database - [Disconnected]");
+                dbLabel.setStyle("-fx-font-weight:bold; -fx-text-fill: #B71C1C;");
+                
+                
+            }
           
         } catch (SQLException ex) {
        
@@ -142,5 +150,6 @@ public class HomeController implements Initializable {
         loadWindows("Check In","/room/booking/system/view/checkin.fxml",new Image("/room/booking/system/icon/booking.png"));
         
     }
+
     
 }
