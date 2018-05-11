@@ -7,7 +7,7 @@ package room.booking.system.controller;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
@@ -34,7 +34,7 @@ public class AddRoomController implements Initializable {
     @FXML
     private JFXButton cancelBtn;
     @FXML
-    private JFXTextArea roomIdField;
+    private JFXTextField roomIdField;
     @FXML
     private Spinner<Integer> slotSpinner;
     @FXML
@@ -53,11 +53,11 @@ public class AddRoomController implements Initializable {
         SpinnerValueFactory integerFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100);
         slotSpinner.setValueFactory(integerFactory);
         
-        buildingCombox.getItems().add("Austrilla");
+        buildingCombox.getItems().add("Australia");
         buildingCombox.getItems().add("Germany");
         buildingCombox.getItems().add("Japan");
-        buildingCombox.getItems().add("G House");
-        buildingCombox.getItems().add("G Dormantry");
+        buildingCombox.getItems().add("Guest House");
+        buildingCombox.getItems().add("Girl Dormitory");
         buildingCombox.getItems().add("Custom");
         
         

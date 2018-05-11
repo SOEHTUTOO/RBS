@@ -21,10 +21,22 @@ and open the template in the editor.
 .tab{
     
     -fx-background-color: #3F51B5;
-    -fx-pref-width: 130px;
+    -fx-pref-width: 110px;
     -fx-pref-height: 40px;
-    
 }
+
+.jfx-tab-pane .tab .tab-label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13;
+}
+
+/*.jfx-tab-pane .tab-header-area .jfx-rippler{
+    -jfx-rippler-fill :RED;
+}
+.jfx-tab-pane .tab-selected-line{
+    -fx-stroke : RED;
+}*/
 
 .custom_button{
     

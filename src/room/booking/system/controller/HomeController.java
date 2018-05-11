@@ -11,8 +11,6 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -47,6 +45,8 @@ public class HomeController implements Initializable {
     private JFXButton memberBtn;
     @FXML
     private Label dbLabel;
+    @FXML
+    private JFXButton checkinBtn;
 
     /**
      * Initializes the controller class.
@@ -133,6 +133,13 @@ public class HomeController implements Initializable {
     private void openMemberWindow(ActionEvent event) throws IOException {
         
         loadWindows("Members","/room/booking/system/view/members.fxml",new Image("/room/booking/system/icon/members.png"));
+        
+    }
+
+    @FXML
+    private void openCheckin(ActionEvent event) throws IOException {
+        
+        loadWindows("Check In","/room/booking/system/view/checkin.fxml",new Image("/room/booking/system/icon/booking.png"));
         
     }
     

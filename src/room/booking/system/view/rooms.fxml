@@ -3,8 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTabPane?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
@@ -14,28 +14,82 @@
    <center>
       <JFXTabPane stylesheets="@../css/default.css" BorderPane.alignment="CENTER">
          <tabs>
-            <Tab text="Austrilla">
+            <Tab text="AUSTRALIA">
                <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <FlowPane fx:id="aPane" hgap="20.0" prefHeight="459.0" prefWidth="700.0" vgap="10.0" AnchorPane.bottomAnchor="-49.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <FlowPane fx:id="aPane" hgap="15.0" prefHeight="403.0" prefWidth="698.0" vgap="10.0">
                            <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-                           </padding></FlowPane>
-                     </children></AnchorPane>
-               </content>
-            </Tab>
-            <Tab text="Germany">
-               <content>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
-                     <children>
-                        <FlowPane fx:id="gPane" hgap="20.0" prefHeight="460.0" prefWidth="700.0" vgap="10.0" AnchorPane.bottomAnchor="-50.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                           <padding>
-                              <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                              <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
                            </padding>
                         </FlowPane>
-                     </children>
-                  </AnchorPane>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            <Tab text="GERMANY">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <FlowPane fx:id="gPane" hgap="15.0" prefHeight="403.0" prefWidth="698.0" vgap="10.0">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
+                           </padding>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            <Tab text="JAPAN">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <FlowPane fx:id="jPane" hgap="15.0" prefHeight="403.0" prefWidth="698.0" vgap="10.0">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
+                           </padding>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            <Tab text="GUEST">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <FlowPane fx:id="ghPane" hgap="15.0" prefHeight="403.0" prefWidth="698.0" vgap="10.0">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
+                           </padding>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            <Tab text="GIRL D">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <FlowPane fx:id="gdPane" hgap="15.0" prefHeight="403.0" prefWidth="698.0" vgap="10.0">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
+                           </padding>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
+               </content>
+            </Tab>
+            <Tab text="OTHER...">
+               <content>
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <FlowPane fx:id="oPane" hgap="15.0" prefHeight="403.0" prefWidth="698.0" vgap="10.0">
+                           <padding>
+                              <Insets bottom="20.0" left="20.0" right="15.0" top="20.0" />
+                           </padding>
+                        </FlowPane>
+                     </content>
+                  </ScrollPane>
                </content>
             </Tab>
          </tabs>
