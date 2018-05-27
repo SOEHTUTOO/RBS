@@ -15,11 +15,16 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import room.booking.system.model.Room;
 import room.booking.system.model.RoomDAO;
@@ -145,9 +150,30 @@ public class RoomsController implements Initializable {
                 
                 String btnText = roomBtn.getText();
                 
-                roomBtn.setOnAction(e->{
+                roomBtn.setOnAction((ActionEvent e)->{
+                    
+                    Label title = new Label(room.getId());
+                    title.setPrefWidth(500);
+                    title.setPrefHeight(40);
+                    title.setStyle("-fx-font-weight:bold; -fx-font-size:20px; -fx-text-fill: white; -fx-background-color:#3F51B5; -fx-background-radius:20; -fx-alignment: CENTER;");
+                    
+                    HBox hbox = new HBox();
+                    hbox.setAlignment(Pos.CENTER);
+                    hbox.setPadding(new Insets(10,10,10,10));
+                    hbox.getChildren().add(title);
+                    
+                    VBox vbox = new VBox();
+                    vbox.getChildren().add(hbox);
                 
-                    System.out.println("HELLO");
+                    Stage stage = new Stage();
+        
+                    Scene scene = new Scene(vbox,500, 450);
+        
+                    stage.getIcons().add(new Image("/room/booking/system/icon/visitors.png"));
+                    stage.setScene(scene);
+                    stage.setTitle("Info");
+                    stage.resizableProperty().setValue(Boolean.FALSE);
+                    stage.show();
                 
                 });
     
